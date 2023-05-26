@@ -1,0 +1,5 @@
+@import '../functions';
+
+@mixin focus-box-shadow($color, $width: 8, $opacity: 0.15) {
+  box-shadow: 0 0 0 rem($width) rgba($color, $opacity);
+}

@@ -1,0 +1,30 @@
+@import '../common';
+
+:root {
+  font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  cursor: initial;
+  display: block;
+  height: 100%;
+}
+
+html,
+body {
+  color: $dark-500;
+  font-family: $font-text;
+  font-size: 1.6rem;
+  font-weight: 400;
+  background: $white;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}

@@ -1,0 +1,84 @@
+@import '../common';
+
+body {
+  font-family: $font-text, sans-serif;
+  font-size: rem(16);
+  color: $dark-500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-heading, sans-serif;
+  line-height: 1.5em;
+  margin: 0 0 0.5em 0;
+  clear: both;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: rem(32);
+}
+
+h2 {
+  font-size: rem(24);
+}
+
+h3 {
+  font-family: $font-text;
+  font-size: rem(20);
+  font-weight: 700;
+}
+
+h4 {
+  font-family: $font-text;
+  font-size: rem(16);
+  font-weight: 700;
+}
+
+h5 {
+  font-family: $font-text;
+  font-size: rem(14);
+  line-height: rem(24);
+  margin: 0 0 rem(8) 0;
+}
+
+p {
+  cursor: text;
+  line-height: 1.5em;
+  margin: 0 0 0.5em 0;
+}
+
+.link,
+p a {
+  display: inline-block;
+  font-family: $font-text;
+  font-weight: 700;
+  line-height: inherit;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.link {
+  border-radius: rem(2);
+  color: $green-500;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    color: $green-300;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background: none;
+    @include focus-box-shadow($green-800, 4, 0.2);
+  }
+
+  &:active {
+    background: rgba($green-800, 0.2);
+    @include focus-box-shadow($green-800, 4, 0.2);
+  }
+}
