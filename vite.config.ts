@@ -1,9 +1,13 @@
-import { defineConfig } from 'vite';
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
 import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), svgr()],
   build: {
     outDir: 'build',
   },
@@ -13,5 +17,10 @@ export default defineConfig({
   logLevel: 'warn',
   server: {
     open: true,
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/config/tests/setup.ts'],
   },
 });

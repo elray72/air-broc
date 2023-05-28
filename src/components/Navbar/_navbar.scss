@@ -1,0 +1,41 @@
+@import '../../assets/style/common';
+
+.navbar {
+  border-bottom: rem(2) solid $green-700;
+
+  &__inner {
+    padding: rem(16);
+    max-width: rem(1200);
+    margin: 0 auto;
+  }
+
+  &__heading {
+    color: $green-700;
+    font-family: $font-heading;
+    font-size: rem(24);
+    position: relative;
+    text-decoration: none;
+    transition: 0.1s ease-in-out;
+
+    &:before {
+      content: '';
+      display: block;
+      height: 0;
+      width: 100%;
+      position: absolute;
+      border-bottom: rem(2) solid $green-500;
+      bottom: 0;
+      opacity: 0;
+      transition: 0.1s ease-in-out;
+    }
+
+    &:hover {
+      color: $green-500;
+      opacity: 1;
+
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}

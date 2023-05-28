@@ -1,4 +1,28 @@
 @import '../../assets/style/common';
 
 .footer {
+  background: $green-10;
+  border-top: rem(2) solid $green-700;
+  color: $green-700;
+  font-size: rem(12);
+  line-height: rem(16);
+  font-weight: 700;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: rem(1200);
+    margin: 0 auto;
+    padding: rem(16);
+  }
+
+  &__text {
+    margin: 0 auto rem(4);
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
