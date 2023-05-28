@@ -4,9 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --host --port 3000",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "start": "vite --host --port 3000",
+    "start:dev": "vite --host --port 3000 -m dev",
+    "start:prod": "vite --host --port 3000 -m uat",
+    "build": "npm run build:dev --",
+    "build:dev": "tsc && vite build -m dev",
+    "build:prod": "tsc && vite build -m uat",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest --coverage"
@@ -38,6 +42,7 @@
     "vitest": "^0.31.1"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

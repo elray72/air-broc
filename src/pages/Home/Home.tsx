@@ -28,12 +28,18 @@ const Home: React.FC<IHome> = ({ className }) => {
   return (
     <div className={clsx(className, 'home')}>
       <div className="home__inner">
-        <h1>
+        <h1 className="home__heading">
           A better way
           <br /> to enjoy every day
         </h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <Button theme="primary" onClick={handleRequestInviteClick}>
+        <p className="home__tagline">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <Button
+          className="home__cta"
+          theme="primary"
+          onClick={handleRequestInviteClick}
+        >
           Get Started
         </Button>
       </div>

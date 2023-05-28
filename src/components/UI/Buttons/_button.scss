@@ -1,4 +1,31 @@
 @import '../../../assets/style/common';
 
-.button {
+.btn {
+  color: $white;
+  background-color: $green-500;
+  border: none;
+  border-radius: rem(8);
+  font-family: $font-heading;
+  font-size: rem(20);
+  margin: 0;
+  padding: rem(13) rem(20);
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green-400;
+  }
+
+  &:active {
+    background-color: $green-600;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+    @include focus-box-shadow($green-600);
+  }
 }

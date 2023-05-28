@@ -11,6 +11,7 @@
 
   &__heading {
     color: $green-700;
+    border-radius: rem(2);
     font-family: $font-heading;
     font-size: rem(24);
     position: relative;
@@ -36,6 +37,20 @@
       &:before {
         opacity: 1;
       }
+    }
+
+    &:active {
+      //background-color: $green-600;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+      background-color: rgba($green-600, 0.15);
+      @include focus-box-shadow($green-600);
     }
   }
 }

@@ -15,4 +15,13 @@
     margin: 0 auto;
     padding: rem(16);
   }
+
+  &__heading {
+    font-size: rem(64);
+    line-height: 1.125em;
+  }
+
+  &__tagline {
+    margin-bottom: rem(32);
+  }
 }

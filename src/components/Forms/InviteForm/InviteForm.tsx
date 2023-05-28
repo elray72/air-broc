@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import clsx from 'clsx';
 
 import { REGEX } from '../../../common/constants';
+// import InvitationService from '../../../services/InvitationService';
+
 import { ErrorPanel } from '../../UI/Panels';
 import { Button } from '../../UI/Buttons';
-
 import { Form, FormHeading, FormRow, TextInput } from '../components';
 import { validateForm } from '../components/Validation';
 import './_inviteForm.scss';
@@ -32,12 +33,14 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
     e.preventDefault();
     setError('');
 
-    const { isFormValid } = validateForm(formRef.current);
+    const { isFormValid, formData } = validateForm(formRef.current);
     if (!isFormValid) {
       setError('One or more fields are invalid.');
       return;
     }
-    onSuccess(e);
+
+    // const result = InvitationService.createInvitation();
+    // //onSuccess(e);
   };
 
   return (
@@ -52,7 +55,7 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
       <FormRow>
         <TextInput
           label="Full name"
-          name="fullName"
+          name="name"
           validation={{
             'min-length': 3,
             required: true,
