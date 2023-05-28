@@ -1,0 +1,18 @@
+@import '../../../../assets/style/common';
+
+.form {
+  &__heading {
+    text-align: center;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: rem(16);
+    width: 100%;
+  }
+
+  &__field {
+  }
+}

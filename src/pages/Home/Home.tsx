@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Button } from '../../components/UI/Buttons';
 import { Modal, useModal } from '../../components/UI/Modal';
+import InviteForm from '../../components/Forms/InviteForm/InviteForm';
 import './_home.scss';
 
 interface IHome {
@@ -10,9 +11,18 @@ interface IHome {
 
 const Home: React.FC<IHome> = ({ className }) => {
   const inviteModal = useModal();
+  const successModal = useModal();
 
   const handleRequestInviteClick = () => {
     inviteModal.handleOpen();
+  };
+
+  const handleInviteSuccess = () => {
+    inviteModal.handleClose();
+
+    setTimeout(() => {
+      successModal.handleOpen();
+    }, 300);
   };
 
   return (
@@ -27,10 +37,12 @@ const Home: React.FC<IHome> = ({ className }) => {
           Get Started
         </Button>
       </div>
-      <Modal
-        isOpen={inviteModal.isOpen}
-        onClose={inviteModal.handleClose}
-      ></Modal>
+      <Modal isOpen={inviteModal.isOpen} onClose={inviteModal.handleClose}>
+        <InviteForm onSuccess={handleInviteSuccess} />
+      </Modal>
+      <Modal isOpen={successModal.isOpen} onClose={successModal.handleClose}>
+        woo hooo
+      </Modal>
     </div>
   );
 };

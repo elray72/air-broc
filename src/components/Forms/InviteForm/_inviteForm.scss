@@ -1,0 +1,11 @@
+@import '../../../assets/style/common';
+
+.invite-form {
+  height: auto;
+  width: calc(100vw - #{rem(64)});
+  max-width: rem(360);
+
+  &__heading {
+    margin-bottom: rem(24);
+  }
+}

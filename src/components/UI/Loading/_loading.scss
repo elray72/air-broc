@@ -1,0 +1,66 @@
+@import '../../../assets/style/common';
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $overlay-20;
+  z-index: 1;
+}
+
+.loading-dots {
+  height: rem(16);
+  width: rem(104);
+  display: flex;
+  position: relative;
+
+  &__dot {
+    width: rem(16);
+    height: rem(16);
+    border-radius: 50%;
+    background-color: $green-500;
+    animation: move 0.5s linear 0ms infinite;
+    margin-right: rem(30);
+
+    &:first-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: grow 0.5s linear 0ms infinite;
+    }
+
+    &:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 0;
+      animation: grow 0.5s linear 0s infinite reverse;
+    }
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale3d(0, 0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(rem(45), 0, 0);
+  }
+}
