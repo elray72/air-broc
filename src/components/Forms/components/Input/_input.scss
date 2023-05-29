@@ -3,16 +3,79 @@
 .input {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: rem(16);
+  width: 100%;
+  position: relative;
 
-  &__row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  &__field {
+    border: 0.1rem solid $dark-10;
+    border-radius: rem(4);
+    color: $dark-500;
+    font-size: inherit;
+    line-height: 1.5em;
+    padding: rem(23) rem(16) rem(7);
+    transition: 0.1s ease-in-out;
+    width: 100%;
+
+    &::placeholder {
+      opacity: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-within {
+      @include focus-box-shadow($green-500, 8, 0.1);
+    }
   }
 
   &__label {
+    color: $dark-200;
+    font-size: inherit;
+    pointer-events: none;
+    position: absolute;
+    top: rem(17);
+    left: rem(16);
+    transition: 0.1s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__error {
+    color: $system-danger-dark;
     font-size: rem(12);
-    font-weight: 500;
-    width: 100%;
+    position: absolute;
+    top: auto;
+    bottom: rem(-24);
+  }
+
+  &--has-value,
+  &:focus-within {
+    .input__field {
+      border-color: $green-500;
+    }
+
+    .input__label {
+      color: $green-600;
+      pointer-events: initial;
+      transform-origin: left bottom;
+      transform: translate3d(0, rem(-16), 0) scale3d(0.75, 0.75, 1);
+    }
+  }
+
+  &--has-error,
+  &--has-error:focus-within {
+    .input__field {
+      border-color: $system-danger-dark;
+      @include focus-box-shadow($system-danger-dark, 8, 0.1);
+    }
+
+    .input__label {
+      color: $system-danger-dark;
+    }
   }
 }

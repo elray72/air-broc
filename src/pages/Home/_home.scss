@@ -19,6 +19,11 @@
   &__heading {
     font-size: rem(64);
     line-height: 1.125em;
+
+    em {
+      color: $green-600;
+      font-style: normal;
+    }
   }
 
   &__tagline {

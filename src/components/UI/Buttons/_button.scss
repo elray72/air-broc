@@ -26,6 +26,6 @@
 
   &:focus-visible {
     outline: none;
-    @include focus-box-shadow($green-600);
+    @include focus-box-shadow($green-500);
   }
 }

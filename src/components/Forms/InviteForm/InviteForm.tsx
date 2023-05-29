@@ -1,12 +1,14 @@
 import React, { useRef, useState } from 'react';
 import clsx from 'clsx';
 
-import { REGEX } from '../../../common/constants';
-// import InvitationService from '../../../services/InvitationService';
+import { HTTP_STATUS } from '../../../common/enums';
+import { ERROR_MESSAGES, REGEX } from '../../../common/constants';
+import InvitationService from '../../../services/InvitationService';
 
 import { ErrorPanel } from '../../UI/Panels';
 import { Button } from '../../UI/Buttons';
 import { Form, FormHeading, FormRow, TextInput } from '../components';
+import { Loading } from '../../UI/Loading';
 import { validateForm } from '../components/Validation';
 import './_inviteForm.scss';
 
@@ -19,6 +21,7 @@ interface IInviteForm {
 const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +32,7 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
     setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -39,8 +42,19 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
       return;
     }
 
-    // const result = InvitationService.createInvitation();
-    // //onSuccess(e);
+    setLoading(true);
+    const result = await InvitationService.createInvitation({
+      name: formData.name,
+      email: formData.email,
+    });
+
+    setLoading(false);
+    if (result.status !== HTTP_STATUS.OK) {
+      setError(result.data.errorMessage || ERROR_MESSAGES.Default);
+      return;
+    }
+
+    onSuccess(e);
   };
 
   return (
@@ -49,6 +63,7 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
       onSubmit={handleSubmit}
       forwardRef={formRef}
     >
+      {isLoading && <Loading />}
       <FormHeading className="invite-form__heading" tagName="h2">
         Request an Invite
       </FormHeading>
@@ -88,9 +103,13 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
           onBlur={handleInputBlur}
         />
       </FormRow>
-      {error && <ErrorPanel>{error}</ErrorPanel>}
+      {error && (
+        <ErrorPanel className="invite-form__error-panel">{error}</ErrorPanel>
+      )}
       <FormRow>
-        <Button type="submit">Submit</Button>
+        <Button className="invite-form__submit-btn" type="submit">
+          Submit
+        </Button>
       </FormRow>
     </Form>
   );

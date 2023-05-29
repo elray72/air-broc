@@ -2,11 +2,11 @@
 
 .error-panel {
   color: $system-danger-dark;
-  background: $system-danger-light;
+  background: $system-danger-pale;
   border-radius: rem(8);
   font-weight: 500;
   margin: rem(16) 0;
-  padding: rem(8) rem(16);
+  padding: rem(16);
 
   &__inner {
     display: flex;

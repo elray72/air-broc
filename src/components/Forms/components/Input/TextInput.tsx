@@ -18,6 +18,7 @@ const TextInput: React.FC<ITextInput> = ({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [isTouched, setTouched] = useState(false);
   const [error, setError] = useState('');
+
   const { id, name, disabled, onBlur } = props;
   const resolvedId = id ? id : name;
 
@@ -45,6 +46,8 @@ const TextInput: React.FC<ITextInput> = ({
     <div
       className={clsx(className, 'input', {
         [`input--disabled`]: disabled,
+        [`input--has-error`]: !!error,
+        [`input--has-value`]: !!inputRef.current?.value,
         [`input--touched`]: isTouched,
       })}
     >

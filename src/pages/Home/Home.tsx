@@ -1,8 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+
 import { Button } from '../../components/UI/Buttons';
 import { Modal, useModal } from '../../components/UI/Modal';
-import InviteForm from '../../components/Forms/InviteForm/InviteForm';
+import { InviteForm, InviteSuccess } from '../../components/Forms/InviteForm';
 import './_home.scss';
 
 interface IHome {
@@ -29,7 +30,7 @@ const Home: React.FC<IHome> = ({ className }) => {
     <div className={clsx(className, 'home')}>
       <div className="home__inner">
         <h1 className="home__heading">
-          A better way
+          A <em>better way</em>
           <br /> to enjoy every day
         </h1>
         <p className="home__tagline">
@@ -47,7 +48,7 @@ const Home: React.FC<IHome> = ({ className }) => {
         <InviteForm onSuccess={handleInviteSuccess} />
       </Modal>
       <Modal isOpen={successModal.isOpen} onClose={successModal.handleClose}>
-        woo hooo
+        <InviteSuccess onClose={successModal.handleClose} />
       </Modal>
     </div>
   );

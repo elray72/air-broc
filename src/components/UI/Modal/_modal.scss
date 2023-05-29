@@ -68,6 +68,14 @@
     &:active {
       background: $dark-200;
     }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-within {
+      @include focus-box-shadow($green-500);
+    }
   }
 
   &__placeholder {
