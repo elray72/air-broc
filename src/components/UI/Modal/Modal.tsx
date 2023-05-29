@@ -25,6 +25,12 @@ const Modal: React.FC<IModal> = ({
   const [isVisible, setVisible] = useState(isOpen);
 
   useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose(e);
+      }
+    };
+
     document.addEventListener('keydown', handleEsc);
     return () => {
       document.removeEventListener('keydown', handleEsc);
@@ -52,12 +58,6 @@ const Modal: React.FC<IModal> = ({
     onClose(e);
   };
 
-  const handleEsc = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onClose(e);
-    }
-  };
-
   return isModalOpen
     ? createPortal(
         <div
@@ -73,6 +73,7 @@ const Modal: React.FC<IModal> = ({
           />
           <div className={'modal__content'}>
             <button className="modal__close-btn" onClick={handleClose}>
+              <span className="modal__close-text">Close popup</span>
               <CloseIcon className="modal__close-icon" />
             </button>
             <div className="modal__content-inner">
