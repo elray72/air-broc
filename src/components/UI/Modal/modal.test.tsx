@@ -8,9 +8,9 @@ import {
 } from '../../../test/utils';
 
 import { Button } from '../Buttons';
-import Modal, { IModal } from './Modal';
+import Modal from './Modal';
 
-const ModalArrangement: React.FC<IModal> = ({
+const ModalArrangement: React.FC<{ isOpen: boolean }> = ({
   isOpen: initialIsOpen = false,
 }) => {
   const [isOpen, setOpen] = useState(initialIsOpen);
@@ -29,7 +29,7 @@ describe('Button', () => {
 
   it('should render modal', () => {
     render(
-      <Modal isOpen={true}>
+      <Modal isOpen={true} onClose={() => void 0}>
         <h1>Test modal</h1>
       </Modal>,
     );
@@ -39,7 +39,7 @@ describe('Button', () => {
 
   it('should not render modal', () => {
     render(
-      <Modal isOpen={false}>
+      <Modal isOpen={false} onClose={() => void 0}>
         <h1>Modal title</h1>
       </Modal>,
     );

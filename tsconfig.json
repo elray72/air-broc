@@ -12,6 +12,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "typeRoots": ["src/common/types"],
 
     /* Linting */
     "strict": true,

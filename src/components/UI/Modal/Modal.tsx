@@ -81,7 +81,7 @@ const Modal: React.FC<IModal> = ({
             </div>
           </div>
         </div>,
-        document.getElementById(PORTAL_ID),
+        document.getElementById(PORTAL_ID) || new HTMLElement(),
       )
     : null;
 };

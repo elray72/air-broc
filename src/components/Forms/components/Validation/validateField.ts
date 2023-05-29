@@ -1,15 +1,11 @@
-import { Validate, validateRegex, VALIDATION } from './index';
-import { IValidation } from '../../interfaces';
+import { Validate } from './index';
 
-const validateField = (
-  elem: EventTarget & HTMLInputElement,
-  validation?: IValidation,
-) => {
+const validateField = (elem: EventTarget & HTMLInputElement) => {
   let _isValid = true;
   let _error = '';
 
   Object.entries(elem.dataset).forEach(([key, value]) => {
-    if (!Validate[key]) return;
+    if (!Validate[key as keyof typeof Validate]) return;
 
     const { isValid, error } = Validate[key](elem, value);
     if (!isValid) {

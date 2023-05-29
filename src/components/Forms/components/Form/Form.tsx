@@ -5,6 +5,7 @@ import './_form.scss';
 interface IForm extends React.FormHTMLAttributes<HTMLFormElement> {
   children?: React.ReactNode;
   className?: string;
+  forwardRef: any;
 }
 
 const Form: React.FC<IForm> = ({

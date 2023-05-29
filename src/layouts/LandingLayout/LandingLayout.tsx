@@ -16,7 +16,7 @@ const LandingLayout: React.FC = () => {
       <div className="landing__main">
         <Outlet />
       </div>
-      <Footer className="landing__footer">Footer</Footer>
+      <Footer className="landing__footer" />
     </Page>
   );
 };

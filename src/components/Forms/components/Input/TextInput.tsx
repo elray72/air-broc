@@ -36,7 +36,7 @@ const TextInput: React.FC<ITextInput> = ({
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setError('');
     setTouched(true);
-    const { isValid, error } = validateField(e.target, validation);
+    const { isValid, error } = validateField(e.target);
 
     if (!isValid) setError(error);
     if (onBlur) onBlur(e);

@@ -44,8 +44,8 @@ const InviteForm: React.FC<IInviteForm> = ({ className, onSuccess }) => {
 
     setLoading(true);
     const result = await InvitationService.createInvitation({
-      name: formData.name,
-      email: formData.email,
+      name: formData.name?.toString() || '',
+      email: formData.email?.toString() || '',
     });
 
     setLoading(false);

@@ -17,12 +17,18 @@ export enum VALIDATION {
 export const Validate = {
   [VALIDATION.MinLength]: (elem: TargetElem, minLength: number) =>
     validateMinLength(elem, minLength),
-  [VALIDATION.Regex]: (elem: TargetElem, pattern: RegExp) =>
+  [VALIDATION.Regex]: (elem: TargetElem, pattern: string) =>
     validateRegex(elem, pattern),
   [VALIDATION.Required]: (elem: TargetElem) => validateRequired(elem),
   [VALIDATION.Value]: (elem: TargetElem, value: string | number | boolean) =>
     validateValue(elem, value),
 };
 
-export { validateField, validateForm, validateMinLength, validateRegex, validateRequired };
+export {
+  validateField,
+  validateForm,
+  validateMinLength,
+  validateRegex,
+  validateRequired,
+};
 export * from '../../interfaces';

@@ -12,7 +12,7 @@ const Navbar: React.FC<INavbar> = ({ className }) => {
   return (
     <nav className={clsx(className, 'navbar')}>
       <div className="navbar__inner">
-        <Link className="navbar__heading" href="/">
+        <Link className="navbar__heading" to="/">
           Broccoli & Co.
         </Link>
       </div>
