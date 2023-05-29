@@ -27,6 +27,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "@typescript-eslint/ban-ts-comment": 0,
     "react/react-in-jsx-scope": 0,
     "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",

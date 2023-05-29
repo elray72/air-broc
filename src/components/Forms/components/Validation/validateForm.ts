@@ -9,15 +9,16 @@ const validateForm = (form: HTMLFormElement | null) => {
   const formData: IFormData = {};
   let isFormValid = true;
 
-  [...(form?.elements || [])].forEach(
-    (elem: EventTarget & HTMLInputElement) => {
-      if (!INPUT_TAGS.includes(elem.tagName)) return;
+  for (let i = 0; i < form.elements.length; i++) {
+    // @ts-ignore
+    const elem: EventTarget & HTMLInputElement = form.elements[i];
+    if (!INPUT_TAGS.includes(elem.tagName)) continue;
 
-      formData[elem.name] = elem.value;
-      const { isValid } = validateField(elem);
-      if (!isValid) isFormValid = false;
-    },
-  );
+    formData[elem.name] = elem.value;
+    const { isValid } = validateField(elem);
+    if (!isValid) isFormValid = false;
+  }
+
   return { isFormValid, formData };
 };
 

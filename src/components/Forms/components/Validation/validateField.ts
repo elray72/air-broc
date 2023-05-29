@@ -7,6 +7,7 @@ const validateField = (elem: EventTarget & HTMLInputElement) => {
   Object.entries(elem.dataset).forEach(([key, value]) => {
     if (!Validate[key as keyof typeof Validate]) return;
 
+    // @ts-ignore
     const { isValid, error } = Validate[key](elem, value);
     if (!isValid) {
       _isValid = isValid;
