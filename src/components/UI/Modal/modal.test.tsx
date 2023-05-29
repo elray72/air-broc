@@ -6,6 +6,7 @@ import {
   userEvent,
   waitFor,
 } from '../../../test/utils';
+
 import { Button } from '../Buttons';
 import Modal, { IModal } from './Modal';
 

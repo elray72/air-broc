@@ -5,7 +5,7 @@ import './_input.scss';
 
 interface ITextInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  validation: IValidation;
+  validation?: IValidation;
 }
 
 const TextInput: React.FC<ITextInput> = ({
@@ -24,7 +24,7 @@ const TextInput: React.FC<ITextInput> = ({
 
   const dataset = useMemo(() => {
     let set = {};
-    Object.entries(validation || []).map(([key, value]) => {
+    Object.entries(validation || {}).map(([key, value]) => {
       set = {
         ...set,
         [`data-validation-${key}`]: value,
