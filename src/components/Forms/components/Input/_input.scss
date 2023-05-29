@@ -71,7 +71,10 @@
   &--has-error:focus-within {
     .input__field {
       border-color: $system-danger-dark;
-      @include focus-box-shadow($system-danger-dark, 8, 0.1);
+
+      &:focus-within {
+        @include focus-box-shadow($system-danger-dark, 8, 0.1);
+      }
     }
 
     .input__label {
