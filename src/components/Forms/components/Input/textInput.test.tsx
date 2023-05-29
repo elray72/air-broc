@@ -9,7 +9,7 @@ import TextInput from './TextInput';
 
 const INPUT_LABEL = 'Text input field';
 
-describe('Button', () => {
+describe('Text input', () => {
   it('should render input', () => {
     render(<TextInput label={INPUT_LABEL} />);
 

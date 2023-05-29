@@ -24,7 +24,7 @@ const ModalArrangement: React.FC<{ isOpen: boolean }> = ({
   );
 };
 
-describe('Button', () => {
+describe('Modal', () => {
   document.body.innerHTML = '<div id="portal" />';
 
   it('should render modal', () => {
