@@ -64,6 +64,7 @@ const Modal: React.FC<IModal> = ({
           className={clsx(className, 'modal', {
             'modal--is-open': isVisible,
           })}
+          role="document"
         >
           <div
             className="modal__overlay"
@@ -79,7 +80,7 @@ const Modal: React.FC<IModal> = ({
             </div>
           </div>
         </div>,
-        document.getElementById(PORTAL_ID) || new HTMLElement(),
+        document.getElementById(PORTAL_ID),
       )
     : null;
 };

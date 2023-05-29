@@ -3,11 +3,10 @@ import clsx from 'clsx';
 import './_loading.scss';
 
 interface ILoading {
-  children?: React.ReactNode;
   className?: string;
 }
 
-const Loading: React.FC<ILoading> = ({ children, className }) => {
+const Loading: React.FC<ILoading> = ({ className }) => {
   return (
     <div className={clsx('loading', className)}>
       <div className={clsx(className, 'loading-dots')}>
