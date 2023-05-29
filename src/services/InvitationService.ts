@@ -1,7 +1,7 @@
 import * as api from './common/api';
 import { InvitationRequest } from '../models';
 
-const apiUrl = 'https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com';
+const apiUrl = import.meta.env.APP_INVITATION_API_URL;
 
 class InvitationService {
   createInvitation = (data: InvitationRequest) => {

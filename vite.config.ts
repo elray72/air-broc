@@ -11,6 +11,7 @@ export default defineConfig({
   css: {
     devSourcemap: true,
   },
+  envPrefix: 'APP',
   logLevel: 'warn',
   server: {
     open: true,
