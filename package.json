@@ -12,6 +12,8 @@
     "build:dev": "tsc && vite build -m dev",
     "build:prod": "tsc && vite build -m uat",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prettier": "prettier --check 'src/*.{css,scss,json,js,jsx,ts,tsx}'",
+    "prettier:fix": "prettier --write 'src/*.{css,scss,json,js,jsx,ts,tsx}'",
     "preview": "vite preview",
     "test": "vitest --coverage --ui"
   },

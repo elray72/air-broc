@@ -4,7 +4,7 @@ Install the following extensions on your **Visual Studio Code**
 (press Crl+Shift+X):
 
 - ESLint
-- Prettier ESLint
+- Prettier
 
 ## Installation
 
@@ -20,17 +20,29 @@ To run the project locally:
 npm start
 ```
 
+## Builds
+
 To build:
 
 ```
 npm run build
 ```
 
-## Before every merge/pull request
+For production build:
 
-Code must be formatted before every pull request. This should be automatic due
-to the 'Format on Save' setting, however you may check for code formatting by
-running the command:
+```
+npm run build:prod
+```
+
+## Tests
+
+```
+npm test
+```
+
+## Prettier
+
+To check for code formatting, run the command:
 
 ```
 npm run prettier
