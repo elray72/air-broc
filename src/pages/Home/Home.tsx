@@ -33,9 +33,7 @@ const Home: React.FC<IHome> = ({ className }) => {
           A <em>better way</em>
           <br /> to enjoy every day
         </h1>
-        <p className="home__tagline">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
+        <p className="home__tagline">Be the first to know when we launch.</p>
         <Button
           className="home__cta"
           theme="primary"
