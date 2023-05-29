@@ -7,7 +7,11 @@
   min-height: 100vh;
 
   &__header {
-    flex: 0 0 auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
   }
 
   &__main {
@@ -18,5 +22,6 @@
 
   &__footer {
     flex: 0 0 auto;
+    z-index: 1;
   }
 }

@@ -1,9 +1,24 @@
 @import '../../assets/style/common';
 
 .home {
+  color: $white;
   display: flex;
   flex: 1 1 auto;
   text-align: center;
+  background: url('./assets/broc-bg.jpg') center center;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    display: block;
+    background: rgba($dark-800, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
 
   &__inner {
     display: flex;
@@ -14,6 +29,8 @@
     max-width: rem(1200);
     margin: 0 auto;
     padding: rem(16);
+    position: relative;
+    z-index: 1;
   }
 
   &__heading {
@@ -21,12 +38,28 @@
     line-height: 1.125em;
 
     em {
-      color: $green-600;
+      color: $green-500;
       font-style: normal;
     }
   }
 
   &__tagline {
-    margin-bottom: rem(32);
+    font-size: rem(18);
+    margin-bottom: rem(36);
+  }
+
+  &__cta {
+    &:hover {
+      background: $green-600;
+    }
+
+    &:focus-within {
+      background: $green-700;
+      @include focus-box-shadow($white);
+    }
+
+    &:active {
+      @include focus-box-shadow($white, 0);
+    }
   }
 }

@@ -1,12 +1,11 @@
 @import '../../assets/style/common';
 
 .footer {
-  background: $dark-5;
-  border-top: rem(2) solid $dark-500;
-  color: $dark-500;
-  font-size: rem(12);
+  background: $green-800;
+  color: $white;
+  font-size: rem(14);
   line-height: rem(16);
-  font-weight: 700;
+  font-weight: 500;
 
   &__inner {
     display: flex;
@@ -14,7 +13,7 @@
     align-items: center;
     max-width: rem(1200);
     margin: 0 auto;
-    padding: rem(16);
+    padding: rem(24);
   }
 
   &__text {
