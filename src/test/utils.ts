@@ -13,6 +13,14 @@ function customRender(ui: React.ReactElement, options: RenderOptions = {}) {
   });
 }
 
+function createInput(type: string, value: string, name?: string) {
+  const input = document.createElement('input');
+  input.type = type;
+  input.value = value;
+  if (name) input.name = name;
+  return input;
+}
+
 export * from '@testing-library/react';
 export { default as userEvent } from '@testing-library/user-event';
-export { customRender as render };
+export { createInput, customRender as render };
